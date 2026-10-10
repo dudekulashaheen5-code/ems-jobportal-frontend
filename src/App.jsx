@@ -129,7 +129,7 @@ function App() {
   const login = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8080/api/users/login", {
+      const response = await fetch("https://ems-jobportal-backend.onrender.com/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })
@@ -201,7 +201,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://localhost:8080/api/users/register", {
+      const response = await fetch("https://ems-jobportal-backend.onrender.com/api/users/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -251,7 +251,7 @@ function App() {
   const loadJobs = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8080/api/jobs", {
+      const response = await fetch("https://ems-jobportal-backend.onrender.com/api/jobs", {
         headers: { Authorization: "Bearer " + token }
       });
 
@@ -292,7 +292,7 @@ function App() {
     setPage("companyJobs");
 
     try {
-      const response = await fetch(`http://localhost:8080/api/company-jobs/${encodeURIComponent(companyName)}`);
+      const response = await fetch(`https://ems-jobportal-backend.onrender.com/api/company-jobs/${encodeURIComponent(companyName)}`);
       if (!response.ok) {
         alert(`Unable to load ${companyName} career jobs.`);
         setCompanyJobs([]);
@@ -325,7 +325,7 @@ function App() {
   const loadExternalApplications = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8080/api/external-applications", {
+      const response = await fetch("https://ems-jobportal-backend.onrender.com/api/external-applications", {
         method: "GET",
         headers: { Authorization: "Bearer " + token }
       });
@@ -374,7 +374,7 @@ function App() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:8080/api/external-applications/${existingApplication.id}/status?status=APPLIED`, {
+      const response = await fetch(`https://ems-jobportal-backend.onrender.com/api/external-applications/${existingApplication.id}/status?status=APPLIED`, {
         method: "PUT",
         headers: { Authorization: "Bearer " + token }
       });
@@ -407,7 +407,7 @@ function App() {
     setPage("adminCompanyJobs");
 
     try {
-      const response = await fetch(`http://localhost:8080/api/company-jobs/${encodeURIComponent(companyName)}`);
+      const response = await fetch(`https://ems-jobportal-backend.onrender.com/api/company-jobs/${encodeURIComponent(companyName)}`);
       if (!response.ok) {
         alert(`Unable to load ${companyName} career jobs.`);
         setCompanyJobs([]);
@@ -453,7 +453,7 @@ function App() {
     if (!userId) return;
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:8080/api/profile/${userId}`, {
+      const response = await fetch(`https://ems-jobportal-backend.onrender.com/api/profile/${userId}`, {
         headers: { Authorization: "Bearer " + token }
       });
 
@@ -488,7 +488,7 @@ function App() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:8080/api/profile/${userId}`, {
+      const response = await fetch(`https://ems-jobportal-backend.onrender.com/api/profile/${userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -517,7 +517,7 @@ function App() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:8080/api/applications/user/${userId}`, {
+      const response = await fetch(`https://ems-jobportal-backend.onrender.com/api/applications/user/${userId}`, {
         headers: { Authorization: "Bearer " + token }
       });
 
@@ -574,7 +574,7 @@ function App() {
       setIsApplying(true);
       const token = localStorage.getItem("token");
 
-      const profileResponse = await fetch(`http://localhost:8080/api/profile/${userId}`, {
+      const profileResponse = await fetch(`https://ems-jobportal-backend.onrender.com/api/profile/${userId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
         body: JSON.stringify({ userId, phone: applicationPhone, education: applicationEducation, skills: applicationSkills })
@@ -589,7 +589,7 @@ function App() {
       const formData = new FormData();
       formData.append("file", resumeFile);
 
-      const resumeResponse = await fetch(`http://localhost:8080/api/profile/${userId}/resume`, {
+      const resumeResponse = await fetch(`https://ems-jobportal-backend.onrender.com/api/profile/${userId}/resume`, {
         method: "PUT",
         headers: { Authorization: "Bearer " + token },
         body: formData
@@ -601,7 +601,7 @@ function App() {
         return;
       }
 
-      const applicationResponse = await fetch("http://localhost:8080/api/applications", {
+      const applicationResponse = await fetch("https://ems-jobportal-backend.onrender.com/api/applications", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
         body: JSON.stringify({ userId, jobId: selectedJob.id })
@@ -673,7 +673,7 @@ function App() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8080/api/jobs", {
+      const response = await fetch("https://ems-jobportal-backend.onrender.com/api/jobs", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
         body: JSON.stringify({ title: jobTitle, company: jobCompany, location: jobLocation, type: jobType, salary: jobSalary, skills: jobSkills, experience: jobExperience, qualification: jobQualification, description: jobDescription })
@@ -715,7 +715,7 @@ function App() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:8080/api/jobs/${editingJobId}`, {
+      const response = await fetch(`https://ems-jobportal-backend.onrender.com/api/jobs/${editingJobId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json", Authorization: "Bearer " + token },
         body: JSON.stringify({ title: jobTitle, company: jobCompany, location: jobLocation, type: jobType, salary: jobSalary, skills: jobSkills, experience: jobExperience, qualification: jobQualification, description: jobDescription })
@@ -739,7 +739,7 @@ function App() {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:8080/api/jobs/${jobId}`, {
+      const response = await fetch(`https://ems-jobportal-backend.onrender.com/api/jobs/${jobId}`, {
         method: "DELETE",
         headers: { Authorization: "Bearer " + token }
       });
@@ -761,7 +761,7 @@ function App() {
       const token = localStorage.getItem("token");
       let allApplications = [];
 
-      const jobsResponse = await fetch("http://localhost:8080/api/jobs", {
+      const jobsResponse = await fetch("https://ems-jobportal-backend.onrender.com/api/jobs", {
         headers: { Authorization: "Bearer " + token }
       });
 
@@ -774,7 +774,7 @@ function App() {
       setJobs(jobData);
 
       for (const job of jobData) {
-        const applicationResponse = await fetch(`http://localhost:8080/api/applications/job/${job.id}`, {
+        const applicationResponse = await fetch(`https://ems-jobportal-backend.onrender.com/api/applications/job/${job.id}`, {
           headers: { Authorization: "Bearer " + token }
         });
 
@@ -806,7 +806,7 @@ function App() {
       let allUsers = users;
 
       if (allUsers.length === 0) {
-        const usersResponse = await fetch("http://localhost:8080/api/users", {
+        const usersResponse = await fetch("https://ems-jobportal-backend.onrender.com/api/users", {
           headers: { Authorization: "Bearer " + token }
         });
 
@@ -822,7 +822,7 @@ function App() {
         let profileData = null;
 
         try {
-          const profileResponse = await fetch(`http://localhost:8080/api/profile/${applicationUserId}`, {
+          const profileResponse = await fetch(`https://ems-jobportal-backend.onrender.com/api/profile/${applicationUserId}`, {
             headers: { Authorization: "Bearer " + token }
           });
           if (profileResponse.ok) profileData = await profileResponse.json();
@@ -851,7 +851,7 @@ function App() {
   const updateApplicationStatus = async (applicationId, status) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:8080/api/applications/${applicationId}/status?status=${status}`, {
+      const response = await fetch(`https://ems-jobportal-backend.onrender.com/api/applications/${applicationId}/status?status=${status}`, {
         method: "PUT",
         headers: { Authorization: "Bearer " + token }
       });
@@ -871,7 +871,7 @@ function App() {
   const viewResume = async (applicationUserId) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:8080/api/profile/${applicationUserId}/resume`, {
+      const response = await fetch(`https://ems-jobportal-backend.onrender.com/api/profile/${applicationUserId}/resume`, {
         method: "GET",
         headers: { Authorization: "Bearer " + token }
       });
@@ -896,7 +896,7 @@ function App() {
   const loadUsers = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("http://localhost:8080/api/users", {
+      const response = await fetch("https://ems-jobportal-backend.onrender.com/api/users", {
         method: "GET",
         headers: { Authorization: "Bearer " + token }
       });
