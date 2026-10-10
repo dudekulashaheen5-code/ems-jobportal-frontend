@@ -1,0 +1,1409 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f7fb;
+  color: #1f2937;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+
+/* =========================================================
+   LOGIN / REGISTER
+========================================================= */
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #172554, #2563eb);
+  padding: 20px;
+}
+
+.login-box {
+  width: 420px;
+  max-width: 100%;
+  background: white;
+  padding: 45px;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.login-box h1 {
+  margin-bottom: 10px;
+  color: #172554;
+  font-size: 32px;
+}
+
+.login-subtitle {
+  color: #64748b;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+.login-box input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.login-box form button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.login-box form button:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.auth-switch {
+  margin-top: 20px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+.auth-link {
+  border: none;
+  background: transparent;
+  color: #2563eb;
+  font-weight: bold;
+  margin-left: 5px;
+  padding: 0;
+}
+
+.auth-link:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   MAIN APP
+========================================================= */
+
+.app {
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  min-height: 72px;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 45px;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1d4ed8;
+}
+
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-buttons button {
+  border: none;
+  background: transparent;
+  color: #475569;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.nav-buttons button:hover {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   USER DASHBOARD
+========================================================= */
+
+.dashboard {
+  max-width: 1150px;
+  margin: auto;
+  padding: 55px 25px;
+}
+
+.welcome-card {
+  background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+  color: white;
+  padding: 55px;
+  border-radius: 22px;
+  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.2);
+}
+
+.welcome-card h1 {
+  margin: 0 0 12px;
+  font-size: 38px;
+}
+
+.welcome-card p {
+  font-size: 18px;
+  margin-bottom: 28px;
+  color: #dbeafe;
+}
+
+.main-button {
+  border: none;
+  background: white;
+  color: #1d4ed8;
+  padding: 13px 22px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.main-button:hover {
+  background: #eff6ff;
+}
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.dashboard-card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.09);
+  border-color: #bfdbfe;
+}
+
+.dashboard-card h2 {
+  font-size: 35px;
+  margin: 0 0 15px;
+}
+
+.dashboard-card h3 {
+  margin: 0 0 10px;
+  color: #1e3a8a;
+  font-size: 21px;
+}
+
+.dashboard-card p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   COMMON PAGES
+========================================================= */
+
+.form-page,
+.jobs-page,
+.applications-page,
+.admin-jobs-page,
+.admin-applications-page,
+.admin-users-page {
+  max-width: 1150px;
+  margin: auto;
+  padding: 45px 25px;
+}
+
+.form-page h1,
+.jobs-page h1,
+.applications-page h1,
+.admin-jobs-page h1,
+.admin-applications-page h1,
+.admin-users-page h1 {
+  color: #172554;
+  margin-bottom: 8px;
+  font-size: 34px;
+}
+
+.page-subtitle {
+  color: #64748b;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   PROFILE FORM
+========================================================= */
+
+.form-box {
+  max-width: 650px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e2e8f0;
+}
+
+.form-box h1 {
+  margin-top: 0;
+  color: #172554;
+}
+
+.form-box > p {
+  color: #64748b;
+  margin-bottom: 30px;
+}
+
+.form-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-box label {
+  margin-top: 15px;
+  margin-bottom: 7px;
+  font-weight: bold;
+  color: #334155;
+}
+
+.form-box input {
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  outline: none;
+}
+
+.form-box input:focus {
+  border-color: #2563eb;
+}
+
+.form-box form button {
+  margin-top: 25px;
+  padding: 13px;
+  border: none;
+  border-radius: 9px;
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+
+.form-box form button:hover {
+  background: #1d4ed8;
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.back-button {
+  margin-top: 20px;
+  padding: 11px 18px;
+  border: none;
+  border-radius: 9px;
+  background: #e2e8f0;
+  color: #334155;
+  font-weight: bold;
+}
+
+.back-button:hover {
+  background: #cbd5e1;
+}
+
+.form-cancel-button {
+  background: #e2e8f0 !important;
+  color: #334155 !important;
+}
+
+
+/* =========================================================
+   JOB SEARCH
+========================================================= */
+
+.job-search-box {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+}
+
+.job-search-box input {
+  flex: 1;
+  padding: 13px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  outline: none;
+  font-size: 15px;
+  color: #334155;
+  background: #ffffff;
+}
+
+.job-search-box input::placeholder {
+  color: #94a3b8;
+}
+
+.job-search-box input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.job-search-box select {
+  width: 180px;
+  padding: 13px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  background-color: #ffffff;
+  color: #334155;
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.job-search-box select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.job-search-box select option {
+  background-color: #ffffff;
+  color: #334155;
+}
+
+
+/* =========================================================
+   COMPANY SEARCH
+========================================================= */
+
+.company-job-search {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 30px;
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+}
+
+.company-job-search input {
+  flex: 1;
+  padding: 14px 16px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  outline: none;
+  font-size: 15px;
+  color: #334155;
+}
+
+.company-job-search input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.company-job-search input::placeholder {
+  color: #94a3b8;
+}
+
+.company-job-search button {
+  border: none;
+  background: #e2e8f0;
+  color: #334155;
+  padding: 0 20px;
+  border-radius: 9px;
+  font-weight: bold;
+}
+
+.company-job-search button:hover {
+  background: #cbd5e1;
+}
+
+
+/* =========================================================
+   JOB LIST
+========================================================= */
+
+.job-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.job-card {
+  background: white;
+  padding: 28px;
+  border-radius: 17px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.25s;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+  border-color: #bfdbfe;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.job-header h2 {
+  margin: 0;
+  color: #172554;
+  font-size: 22px;
+}
+
+.job-header h3 {
+  margin: 8px 0 15px;
+  color: #64748b;
+  font-size: 16px;
+}
+
+.job-type {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.job-card p {
+  color: #475569;
+  line-height: 1.6;
+}
+
+.job-description {
+  min-height: 55px;
+}
+
+.apply-button {
+  width: 100%;
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 13px;
+  border-radius: 9px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.apply-button:hover {
+  background: #1d4ed8;
+}
+
+
+/* =========================================================
+   TOP COMPANIES
+========================================================= */
+
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.company-card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: 0.25s;
+}
+
+.company-card:hover {
+  transform: translateY(-5px);
+  border-color: #bfdbfe;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.company-icon {
+  font-size: 45px;
+  margin-bottom: 15px;
+}
+
+.company-card h2 {
+  color: #172554;
+  margin-bottom: 10px;
+}
+
+.company-card p {
+  color: #64748b;
+  line-height: 1.6;
+  min-height: 75px;
+}
+
+.company-source-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 25px;
+}
+
+.company-source-box strong {
+  color: #1d4ed8;
+  font-size: 17px;
+}
+
+.company-source-box p {
+  color: #475569;
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   EMPTY BOX
+========================================================= */
+
+.empty-box {
+  background: white;
+  border: 1px dashed #cbd5e1;
+  border-radius: 15px;
+  padding: 45px;
+  text-align: center;
+  color: #64748b;
+}
+
+.empty-box h2 {
+  color: #334155;
+}
+
+
+/* =========================================================
+   APPLICATION TRACKING
+========================================================= */
+
+.application-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.application-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 17px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: 0.25s;
+}
+
+.application-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
+}
+
+.application-card h2 {
+  margin-top: 0;
+  color: #172554;
+  font-size: 21px;
+}
+
+.application-card h3 {
+  color: #475569;
+  font-size: 18px;
+}
+
+.application-card p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.application-details {
+  display: flex;
+  gap: 30px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.application-details p {
+  margin: 0;
+}
+
+.status {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.status.applied {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status.apply_clicked {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.status.shortlisted {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status.rejected {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+
+/* =========================================================
+   APPLY FORM
+========================================================= */
+
+.apply-form-box {
+  max-width: 700px;
+}
+
+.job-details-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.job-details-box h2 {
+  color: #172554;
+  margin-top: 0;
+}
+
+.job-details-box p {
+  color: #475569;
+  margin: 8px 0;
+}
+
+.resume-selected {
+  background: #f0fdf4;
+  color: #15803d !important;
+  border: 1px solid #bbf7d0;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.submit-application-button {
+  margin-top: 25px !important;
+}
+
+.submit-application-button:disabled {
+  background: #94a3b8 !important;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   ADMIN DASHBOARD
+========================================================= */
+
+.admin-navbar {
+  background: #172554;
+  border-bottom: none;
+}
+
+.admin-navbar .logo {
+  color: white;
+}
+
+.admin-navbar .nav-buttons button {
+  color: #dbeafe;
+}
+
+.admin-navbar .nav-buttons button:hover {
+  background: #1e3a8a;
+  color: white;
+}
+
+.admin-dashboard {
+  max-width: 1150px;
+  margin: auto;
+  padding: 55px 25px;
+}
+
+.admin-welcome {
+  background: linear-gradient(135deg, #172554, #1d4ed8);
+  color: white;
+  padding: 45px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.admin-welcome h1 {
+  margin: 0 0 10px;
+  font-size: 36px;
+}
+
+.admin-welcome p {
+  color: #dbeafe;
+  margin: 0;
+}
+
+.admin-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.admin-card {
+  background: white;
+  border-radius: 18px;
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.admin-card:hover {
+  transform: translateY(-5px);
+  border-color: #93c5fd;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.09);
+}
+
+.admin-icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.admin-card h2 {
+  color: #172554;
+}
+
+.admin-card p {
+  color: #64748b;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   ADMIN COUNTS
+========================================================= */
+
+.admin-counts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 25px;
+}
+
+.admin-counts > div {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.04);
+}
+
+.admin-counts strong {
+  display: block;
+  color: #475569;
+  margin-bottom: 10px;
+}
+
+.admin-counts span {
+  display: block;
+  color: #1d4ed8;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.admin-info-box {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.admin-info-box h3 {
+  margin-top: 0;
+  color: #172554;
+}
+
+.admin-info-box p {
+  color: #475569;
+  margin-bottom: 0;
+}
+
+
+/* =========================================================
+   ADMIN JOB FORM
+========================================================= */
+
+.admin-form-box {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+}
+
+.admin-form-box h2 {
+  margin-top: 0;
+  color: #172554;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.form-field label {
+  font-weight: bold;
+  margin-bottom: 7px;
+  color: #334155;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  outline: none;
+  resize: vertical;
+  background: white;
+  color: #334155;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #94a3b8;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.add-job-button {
+  border: none;
+  background: #2563eb;
+  color: white;
+  padding: 13px 20px;
+  border-radius: 9px;
+  font-weight: bold;
+}
+
+.add-job-button:hover {
+  background: #1d4ed8;
+}
+
+
+/* =========================================================
+   EXISTING JOBS
+========================================================= */
+
+.existing-jobs {
+  margin-top: 35px;
+}
+
+.existing-jobs > h2 {
+  color: #172554;
+}
+
+.admin-job-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-job-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.admin-job-info {
+  flex: 1;
+}
+
+.admin-job-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-job-title h2 {
+  margin: 0;
+  color: #172554;
+}
+
+.admin-job-info h3 {
+  color: #64748b;
+}
+
+.admin-job-info p {
+  color: #475569;
+  line-height: 1.5;
+}
+
+.admin-job-actions {
+  min-width: 150px;
+}
+
+.edit-button {
+  border: none;
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.edit-button:hover {
+  background: #bfdbfe;
+}
+
+.delete-button {
+  border: none;
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.delete-button:hover {
+  background: #fecaca;
+}
+
+
+/* =========================================================
+   ADMIN APPLICATIONS
+========================================================= */
+
+.admin-application-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-application-card {
+  background: white;
+  padding: 25px;
+  border-radius: 17px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
+.admin-application-card:hover {
+  border-color: #bfdbfe;
+}
+
+.admin-application-card .application-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-application-card h2 {
+  color: #172554;
+  margin-top: 0;
+}
+
+.applicant-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 18px;
+  margin-top: 20px;
+}
+
+.applicant-box h3 {
+  color: #172554;
+  margin-top: 0;
+}
+
+.applicant-box p {
+  color: #475569;
+  margin: 8px 0;
+}
+
+.application-details-spaced {
+  margin-top: 20px;
+}
+
+.application-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.resume-button,
+.shortlist-button,
+.reject-button {
+  border: none;
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.resume-button {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.resume-button:hover {
+  background: #bae6fd;
+}
+
+.shortlist-button {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.shortlist-button:hover {
+  background: #bbf7d0;
+}
+
+.reject-button {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.reject-button:hover {
+  background: #fecaca;
+}
+
+.loading-box {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   ADMIN USERS
+========================================================= */
+
+.admin-user-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.admin-user-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-icon {
+  width: 60px;
+  height: 60px;
+  background: #dbeafe;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+}
+
+.user-details h2 {
+  margin: 0 0 10px;
+  color: #172554;
+}
+
+.user-details p {
+  margin: 7px 0;
+  color: #64748b;
+}
+
+.user-role {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 4px 9px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 900px) {
+  .dashboard-cards,
+  .admin-cards,
+  .company-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .job-list {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-counts {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 700px) {
+  .navbar {
+    padding: 15px 20px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .welcome-card {
+    padding: 30px;
+  }
+
+  .welcome-card h1 {
+    font-size: 28px;
+  }
+
+  .job-search-box,
+  .company-job-search {
+    flex-direction: column;
+  }
+
+  .job-search-box select {
+    width: 100%;
+  }
+
+  .company-job-search button {
+    padding: 12px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-job-card {
+    flex-direction: column;
+  }
+
+  .admin-application-card .application-top {
+    flex-direction: column;
+  }
+
+  .application-details {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .admin-user-card {
+    align-items: flex-start;
+  }
+}
+
+
+@media (max-width: 500px) {
+  .login-box {
+    padding: 30px 22px;
+  }
+
+  .login-box h1 {
+    font-size: 25px;
+  }
+
+  .form-page,
+  .jobs-page,
+  .applications-page,
+  .admin-jobs-page,
+  .admin-applications-page,
+  .admin-users-page {
+    padding: 30px 15px;
+  }
+
+  .form-box {
+    padding: 25px;
+  }
+
+  .application-card,
+  .admin-application-card,
+  .admin-job-card,
+  .admin-user-card {
+    padding: 20px;
+  }
+}
+/* Consistent layout for all company job cards */
+.company-job-card {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+/* Consistent spacing for Location, Job ID and Posted Date */
+.company-job-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 8px;
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+.company-job-meta p {
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.company-job-meta p strong {
+  font-weight: 600;
+}
+
+.company-job-meta p span {
+  min-width: 0;
+}
+
+/* Consistent description alignment */
+.company-job-description {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 4px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.company-job-description > strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.company-job-description p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Keep company job buttons aligned */
+.company-job-card .apply-button,
+.company-job-card .main-button {
+  align-self: flex-start;
+}
+
+/* Improve company job cards on small screens */
+@media (max-width: 600px) {
+  .company-job-meta p {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .company-job-card .job-header {
+    flex-direction: column;
+  }
+}
